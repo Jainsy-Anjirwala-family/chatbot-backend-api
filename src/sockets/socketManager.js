@@ -13,7 +13,7 @@ module.exports = {
         io = new Server(httpServer, {
             cors: { 
                 // Allow both Next.js (3001) and vanilla HTML (3000) for testing
-                origin: ["http://localhost:3001", "http://localhost:3000"], 
+                origin: ["http://localhost:3001", "http://localhost:3000","https://chatbot-web-websocket.vercel.app"], 
                 methods: ["GET", "POST"],
                 credentials: true // Required for authorized connections
             }
