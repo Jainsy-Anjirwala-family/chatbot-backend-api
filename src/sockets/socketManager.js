@@ -7,8 +7,16 @@ let io;
 
 module.exports = {
     init: (httpServer) => {
+        // io = new Server(httpServer, {
+        //     cors: { origin: env.clientUrl, methods: ["GET", "POST"] }
+        // });
         io = new Server(httpServer, {
-            cors: { origin: env.clientUrl, methods: ["GET", "POST"] }
+            cors: { 
+                // Allow both Next.js (3001) and vanilla HTML (3000) for testing
+                origin: ["http://localhost:3001", "http://localhost:3000"], 
+                methods: ["GET", "POST"],
+                credentials: true // Required for authorized connections
+            }
         });
 
         // Apply Authentication Middleware
