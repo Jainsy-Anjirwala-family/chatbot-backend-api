@@ -4,5 +4,6 @@ const userController = require('../controllers/userController');
 
 // Open route so users can create an account and get a token
 router.post('/', userController.createUserAndNotify);
+router.post('/existing', userController.existingUserAndNotify);
 
 module.exports = router;
