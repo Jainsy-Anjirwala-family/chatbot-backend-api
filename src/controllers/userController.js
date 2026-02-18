@@ -112,7 +112,7 @@ exports.logoutUser = async (req, res, next) => {
             });
 
         // 3. UPDATE: Save the combined list back to Neon DB
-        const updateQuery = 'UPDATE users SET previous_login_details = $1 WHERE id = $2 RETURNING *';
+        const updateQuery = 'UPDATE users SET previous_logout_details = $1 WHERE id = $2 RETURNING *';
         const updateResult = await pool.query(updateQuery, [JSON.stringify(newArrList), existingUser.id]);
         const userWithHistory = updateResult.rows[0];
 
